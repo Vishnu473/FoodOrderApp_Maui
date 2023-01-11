@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:sk="clr-namespace:SkiaSharp.Extended.UI.Controls;assembly=SkiaSharp.Extended.UI"
+             xmlns:vm="clr-namespace:FoodOrderApp.ViewModels"
+             x:Class="FoodOrderApp.Views.OrderView"
+             BackgroundColor="{DynamicResource PageBackgroundColor}"
+             Title="OrderView">
+    <ContentPage.Content>
+    <Grid RowDefinitions="Auto,*" BackgroundColor="{DynamicResource BgColor3}">
+            <StackLayout Grid.Row="0">
+                <Grid BackgroundColor="{DynamicResource NavigationBarColor}" Padding="10" RowDefinitions="30">
+                    <Label Text="Orders"  Style="{StaticResource TitleLabelStyle}"
+                           FontFamily="" Grid.Row="0" HorizontalOptions="Center"/>
+                </Grid>
+            </StackLayout>
+            
+                    <Grid RowDefinitions="Auto,Auto,Auto,*,Auto" Grid.Row="1" Padding="10">
+                        <!--Animation-->
+                        <!--<sk:SKLottieView Source="https://assets8.lottiefiles.com/packages/lf20_AHqXch.json" RepeatCount="-1" Grid.Row="0" WidthRequest="200" HeightRequest="200"/>-->
+                        <sk:SKLottieView Source="success.json" Grid.Row="0" WidthRequest="200" HeightRequest="200" RepeatCount="-1"/>
+                        <!--<skia:SKLottieView Source="https://assets8.lottiefiles.com/packages/lf20_AHqXch.json" RepeatCount="-1" WidthRequest="200" HeightRequest="200" Grid.Row="0"/>-->
+                        <Label Text="Thank You!" Grid.Row="1" FontAttributes="Bold" FontSize="Title"
+                               TextColor="Green" HorizontalTextAlignment="Center"/>
+                        <Label Text="Your order is Confirmed" Grid.Row="2" Style="{StaticResource SubTitleLabelStyle}" HorizontalTextAlignment="Center"/>
+                        <ScrollView Grid.Row="3" VerticalScrollBarVisibility="Never">
+                        <ScrollView.Content>
+                            <Grid RowDefinitions="Auto,Auto,Auto,Auto" RowSpacing="10" BackgroundColor="white" Padding="5">
+                            <StackLayout Grid.Row="0" >
+                                <Label Text="Order Id" FontSize="Large" FontAttributes="Bold" FontFamily=""/>
+                                <Label x:Name="OrderId" Style="{StaticResource SubLabelStyle}" TextColor="{StaticResource LightColor}"/>
+                               </StackLayout>
+                            <StackLayout Grid.Row="1">
+                                <Label Text="Final Order Amount" FontAttributes="Bold" FontSize="Large" FontFamily=""/>
+                                <Label x:Name="OrderAmount" Style="{StaticResource SubLabelStyle}" TextColor="OrangeRed"/>
+                            </StackLayout>
+                            <StackLayout Grid.Row="2" >
+                                <Label Text="List of Ordered Items" FontAttributes="Bold" FontSize="Large"/>
+                                <Label x:Name="OrderItems" Style="{StaticResource SubLabelStyle}" HorizontalTextAlignment="Start" TextColor="{StaticResource LightColor}"/>
+                            </StackLayout>
+                            <StackLayout Grid.Row="3">
+                                <Label Text="Payment Method" FontAttributes="Bold" FontSize="Large"/>
+                                <Label Text="Cash on delivery" Style="{StaticResource SubLabelStyle}" TextColor="{StaticResource LightColor}"/>
+                            </StackLayout>
+                            </Grid>
+                        </ScrollView.Content>
+                        </ScrollView>
+                        <Button Text="Go To Home" Grid.Row="4" HorizontalOptions="Center" Margin="0,20,0,0"
+                                FontSize="Large" Style="{StaticResource BtnStyle}" HeightRequest="40" BackgroundColor="Green"
+                                x:Name="HomeBtn" Clicked="HomeBtn_Clicked"/>
+
+                    </Grid>
+                
+    </Grid>
+    </ContentPage.Content>
+    
+</ContentPage>

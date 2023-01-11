@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FoodOrderApp.Views.SettingsPage"
+             Title="SettingsPage">
+    <VerticalStackLayout Spacing="20" Padding="20">
+        <Button Text="Add Categories" x:Name="Add_Categories"
+                Clicked="Add_Categories_Clicked" WidthRequest="150"/>
+
+        <Button Text="Add FoodItems" x:Name="Add_FoodItems"
+                Clicked="Add_FoodItems_Clicked"  WidthRequest="150"/>
+
+        <Button Text="Create CartItem Table" x:Name="Create_Table"
+                Clicked="Create_Table_Clicked"  WidthRequest="150"/>
+
+        </VerticalStackLayout>
+</ContentPage>

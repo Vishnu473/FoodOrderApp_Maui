@@ -1,0 +1,3 @@
+/Users/tarini.vishnukishore/Projects/FoodOrderApp/FoodOrderApp/bin/Release/net7.0-android/publish/com.companyname.foodorderapp-Signed.aab
+/Users/tarini.vishnukishore/Projects/FoodOrderApp/FoodOrderApp/bin/Release/net7.0-android/publish/com.companyname.foodorderapp.aab
+/Users/tarini.vishnukishore/Projects/FoodOrderApp/FoodOrderApp/bin/Release/net7.0-android/publish/com.companyname.foodorderapp-Signed.apk

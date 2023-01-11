@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
+             ios:Page.UseSafeArea="True"
+             xmlns:vm="clr-namespace:FoodOrderApp.ViewModels"
+             x:Class="FoodOrderApp.Views.CartView"
+             BackgroundColor="{DynamicResource PageBackgroundColor}"
+             Title="CartView">
+    <ContentPage.BindingContext>
+        <vm:CartViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <Grid RowDefinitions="Auto,*,Auto,Auto" RowSpacing="10">
+            <StackLayout Grid.Row="0">
+                <Grid BackgroundColor="{DynamicResource NavigationBarColor}" Padding="10" RowDefinitions="30">
+                    <ImageButton Source="https://cdn-icons-png.flaticon.com/128/2223/2223615.png" WidthRequest="30" HeightRequest="30"
+                                    HorizontalOptions="StartAndExpand" Grid.Row="0" Clicked="ImageButton_Clicked"/>
+                    <Label Text="Items in Cart"  Style="{StaticResource TitleLabelStyle}" Grid.Row="0" HorizontalOptions="Center"/>
+                </Grid>
+            </StackLayout>
+            <ScrollView Grid.Row="1" BackgroundColor="{DynamicResource BgColor3}">
+                <ScrollView.Content>
+                <Grid RowDefinitions="*,Auto" RowSpacing="10" IsVisible="{Binding IsVisible}">
+                    <ListView Grid.Row="0" HasUnevenRows="True" ItemsSource="{Binding CartItemsList}"
+                      SelectionMode="None" HorizontalOptions="Center" BackgroundColor="{DynamicResource BgColor3}">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <ViewCell.View>
+                                        <Border StrokeShape="RoundRectangle" StrokeThickness="1" WidthRequest="419" HeightRequest="181" 
+                                                VerticalOptions="Center">
+                                        <Frame HasShadow="True" WidthRequest="417" HeightRequest="179" Padding="0" HorizontalOptions="Center" BackgroundColor="{DynamicResource BgColor}">
+                                        <Grid ColumnDefinitions="1.5*,*,*" RowDefinitions="Auto,Auto,Auto,Auto" ColumnSpacing="5" RowSpacing="5" Padding="5">
+                                            <Image Source="{Binding FoodImageUrl}" Aspect="AspectFill" Grid.Row="1" Grid.RowSpan="3" Grid.Column="0"
+                                                   VerticalOptions="Start" HeightRequest="100"/>
+                                            <Label Text="{Binding FoodName}" Style="{StaticResource SubTitleLabelStyle}" Grid.Column="0" Grid.Row="0" TextColor="{DynamicResource DemoColor}"
+                                                   FontFamily="" Grid.ColumnSpan="3"  HorizontalOptions="StartAndExpand" VerticalTextAlignment="Center"/>
+                                            <Label Text="{Binding Quantity}"  Style="{StaticResource LargeLabelStyle}" TextColor="{DynamicResource PriceColor}"
+                                                    Grid.Row="1" Grid.Column="2" VerticalTextAlignment="Start" HorizontalTextAlignment="Center"/>
+                                            <Label Text="Quantity"  Style="{StaticResource LargeLabelStyle}" 
+                                                    Grid.Row="1" Grid.Column="1" VerticalTextAlignment="Start" />
+                                            <Label Text="Price"  Style="{StaticResource LargeLabelStyle}" 
+                                                    Grid.Row="2" Grid.Column="1" VerticalTextAlignment="Start"/>
+
+                                            <Label Text="{Binding Price}" FontSize="Large" Grid.Column="2" HorizontalTextAlignment="Center" Grid.Row="2"
+                                                   VerticalTextAlignment="Start" TextColor="{DynamicResource PriceColor}"/>
+                                            <Label Text="{Binding TotalCost, StringFormat='Rs. {0}'}" Grid.Column="2" Grid.Row="3" VerticalOptions="CenterAndExpand"
+                                                  TextColor="{DynamicResource DemoColor}" Style="{StaticResource LargeLabelStyle}" HorizontalTextAlignment="Center"/>
+
+                                        </Grid>
+                                        </Frame>
+                                        </Border>
+                                    </ViewCell.View>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </Grid>
+                </ScrollView.Content>
+            </ScrollView>
+            <Grid RowDefinitions="Auto" Padding="10" Grid.Row="2" IsVisible="{Binding IsVisible}">
+                <Label Text="Total Order Price : " Style="{StaticResource LargeLabelStyle}"/>
+                <Label Text="{Binding TotalCartPrice, StringFormat='Rs. {0}'}" HorizontalTextAlignment="End" 
+                        TextColor="Red" Style="{StaticResource LargeLabelStyle}" Margin="30,0"/>
+            </Grid>
+            <Button Text="Place Order" BackgroundColor="Green" HorizontalOptions="Center" IsVisible="{Binding IsVisible}" HeightRequest="40"
+                     WidthRequest="150" FontSize="20" Style="{StaticResource BtnStyle}" Grid.Row="3" Command="{Binding PlaceOrderCommand}"/>
+            <Label Text="" x:Name="Info" Grid.Row="1" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"
+                   FontSize="Large" TextColor="{DynamicResource BorderColor}"/>
+            <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}"
+                               WidthRequest="90" HeightRequest="100" Color="{DynamicResource PrimaryTextColor}"
+                               VerticalOptions="Center" HorizontalOptions="Center" Grid.Row="1"/>
+            <Label Text="Please wait... we are placing your order" VerticalOptions="Center" HorizontalOptions="Center"
+                   FontSize="Medium" TextColor="{DynamicResource PrimaryTextColor}" Grid.Row="1" TranslationY="40" IsVisible="{Binding IsBusy}"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

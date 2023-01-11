@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ResourceDictionary xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FoodOrderApp.Themes.DarkTheme">
+
+    <Color x:Key="PageBackgroundColor">Black</Color>
+    <Color x:Key="NavigationBarColor">Teal</Color>
+    <Color x:Key="PrimaryColor">Teal</Color>
+    <Color x:Key="BgColor">#555</Color>
+    <Color x:Key="Search">DarkSlateGray</Color>
+    <Color x:Key="BgColor2">LightGray</Color>
+    <Color x:Key="BgColor3">Black</Color>
+    <Color x:Key="BorderColor">White</Color>
+    <Color x:Key="LightColor">#777</Color>
+    <Color x:Key="Names">Black</Color>
+    <Color x:Key="PriceColor">DeepPink</Color>
+    <Color x:Key="DescriptionColor">#ddd</Color>
+    <Color x:Key="SecondaryColor">White</Color>
+    <Color x:Key="PrimaryTextColor">White</Color>
+    <Color x:Key="SecondaryTextColor">Beige</Color>
+    <Color x:Key="TeritiaryTextColor">#ddd</Color>
+    <Color x:Key="TransparentColor">Transparent</Color>
+    <Color x:Key="DemoColor">Orange</Color>
+</ResourceDictionary>

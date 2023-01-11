@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:FoodOrderApp.ViewModels"
+             x:DataType="vm:FoodProductViewModel"
+             BackgroundColor="{DynamicResource PageBackgroundColor}"
+             x:Class="FoodOrderApp.Views.FoodProductView"
+             Title="FoodProductView">
+    <ContentPage.Content>
+        <Grid RowDefinitions="Auto,*,Auto">
+            <Grid Grid.Row="0" BackgroundColor="{DynamicResource NavigationBarColor}" Padding="10" RowDefinitions="30">
+                <ImageButton Source="https://cdn-icons-png.flaticon.com/128/2223/2223615.png" WidthRequest="30" HeightRequest="30"
+                                HorizontalOptions="StartAndExpand" Grid.Row="0" Clicked="ImageButton_Clicked"/>
+                <Label Text="{Binding SelectedCategory.CategoryName}" Style="{StaticResource TitleLabelStyle}"
+                    FontFamily="" Grid.Row="0" HorizontalOptions="Center"/>
+            </Grid>
+            <CollectionView ItemsSource="{Binding FoodItems}" Grid.Row="1" x:Name="CV_FoodItemList"
+                            SelectionChanged="CV_FoodItemList_SelectionChanged" SelectionMode="Single">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid RowDefinitions="Auto" Padding="8">
+                        <Border StrokeShape="RoundRectangle" StrokeThickness="1" BackgroundColor="Black" Grid.Row="0">
+                        <Grid RowDefinitions="180,Auto" BackgroundColor="{DynamicResource BgColor}" Padding="2">
+                            <Image Source="{Binding ImageUrl}" Aspect="Fill" Grid.Row="0" />
+                            <Grid RowDefinitions="Auto,*" ColumnDefinitions="2*,*" Grid.Row="1" Padding="5" RowSpacing="5">
+                                <Label Text="{Binding FoodName}" Grid.Row="0" FontSize="22" Grid.Column="0"
+                                        Style="{StaticResource PrimaryBoldStyle}" />
+                                <Label Text="{Binding Description}" Grid.Row="1"
+                                        Grid.ColumnSpan="2" FontSize="17" TextColor="{DynamicResource TeritiaryTextColor}" />
+                                <Label Text="{Binding Price,StringFormat='Rs. {0}'}" Style="{StaticResource PrimaryBoldStyle}" Grid.Row="0" FontSize="20" FontFamily="" Grid.Column="1"
+                                        HorizontalTextAlignment="End" VerticalOptions="Center"/>
+                            </Grid>
+                        </Grid>
+                        </Border>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Grid>
+    </ContentPage.Content>
+    
+</ContentPage>

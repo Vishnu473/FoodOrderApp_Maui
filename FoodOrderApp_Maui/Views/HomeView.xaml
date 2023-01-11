@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:FoodOrderApp.ViewModels"
+             xmlns:iOS="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
+             iOS:Page.UseSafeArea="True"
+             BackgroundColor="{DynamicResource PageBackgroundColor}"
+             NavigationPage.HasBackButton="False"
+             x:Class="FoodOrderApp.Views.HomeView">
+    <ContentPage.BindingContext>
+        <vm:HomeViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <Grid RowDefinitions="60,60,*" ColumnDefinitions="*,Auto">
+            <StackLayout Grid.Row="0" Orientation="Horizontal" 
+                         Grid.ColumnSpan="2" BackgroundColor="#ddd">
+                <Label Text="Food" FontSize="35" TextColor="Purple" FontAttributes="Bold" FontFamily="" TranslationX="10" VerticalTextAlignment="Center"/>
+                <Label Text="Order" FontSize="35" TextColor="DeepSkyBlue" FontAttributes="Bold" FontFamily="" TranslationX="10" VerticalTextAlignment="Center"/>
+                <!--<ImageButton Source="https://img.icons8.com/external-outline-berkahicon/2x/external-Order-History-market-analytics-outline-berkahicon.png" HeightRequest="35"
+                             WidthRequest="35" TranslationX="55" Clicked="OrderHistory_Clicked"/>-->
+                <Label Text="{Binding CartCount}" TextColor="{DynamicResource SecondaryTextColor}" FontSize="18" BackgroundColor="red" HeightRequest="20" WidthRequest="25"
+                       HorizontalTextAlignment="Center" VerticalOptions="Start" TranslationX="153" TranslationY="2"/>
+                <ImageButton Source="https://cdn-icons-png.flaticon.com/128/649/649931.png" HeightRequest="40" WidthRequest="38"
+                            x:Name="CartImage" Clicked="CartImage_Clicked" TranslationX="120" TranslationY="5"/>
+                <ImageButton Source="https://cdn-icons-png.flaticon.com/128/64/64572.png" HeightRequest="40" WidthRequest="40" TranslationX="140"
+                            x:Name="UserProfile" Clicked="UserProfile_Clicked"/>
+            </StackLayout>
+            <StackLayout Grid.Row="1" BackgroundColor="#ddd" Grid.Column="0" Grid.ColumnSpan="2">
+                <Grid RowDefinitions="Auto" ColumnDefinitions="*,Auto" VerticalOptions="Center">
+                <SearchBar Placeholder="Search for food items" BackgroundColor="Transparent" WidthRequest="380" HeightRequest="52" TranslationY="-5" TranslationX="5"
+                       FontSize="Medium" IsTextPredictionEnabled="True" CancelButtonColor="Red" HorizontalOptions="Center" Grid.Row="0" Grid.Column="0"
+                       TextColor="{DynamicResource SecondaryTextColor}" PlaceholderColor="{DynamicResource TeritiaryTextColor}" Text="{Binding SearchItem}"/>
+                <ImageButton x:Name="SearchBar" Style="{StaticResource ImgBtnCenterStyle}" Grid.Row="0" TranslationY="-5"
+                         Command="{Binding SearchCommand}" WidthRequest="40" HeightRequest="40" Grid.Column="1"
+                         Source="https://cdn-icons-png.flaticon.com/128/2811/2811790.png" Margin="5"/>
+                </Grid>
+            </StackLayout>
+            <ScrollView Grid.Row="2" Grid.ColumnSpan="2">
+            <ScrollView.Content>
+            <StackLayout Padding="5">
+                <Label Text="What are you craving for?"  Style="{StaticResource SubTitleLabelStyle}" TranslationX="10"/>
+                <Grid RowDefinitions="310">
+                    <CollectionView ItemsSource="{Binding CategoriesList}" SelectionMode="Single" Grid.Row="0"
+                                    x:Name="CV_Categories" SelectionChanged="CV_Categories_SelectionChanged">
+                        <CollectionView.ItemsLayout>
+                            <GridItemsLayout Orientation="Vertical" Span="3"/>
+                        </CollectionView.ItemsLayout>
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid RowDefinitions="Auto,Auto" Padding="10">
+                                    <ImageButton Source="{Binding ImageUrl}" Grid.Row="0" WidthRequest="110" HeightRequest="110"
+                                                 Aspect="AspectFill">
+                                        <ImageButton.Clip>
+                                            <EllipseGeometry Center="55,55" RadiusX="55" RadiusY="55"/>
+                                        </ImageButton.Clip>
+                                    </ImageButton>
+                                    <Label Text="{Binding CategoryName}" Style="{StaticResource PrimaryBoldStyle}" FontSize="17"
+                                           Grid.Row="1" HorizontalOptions="Center"/>
+                                </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </Grid>
+                <Grid RowDefinitions="Auto,300" ColumnDefinitions="*" Padding="10">
+                <Label Text="Latest Food Items" Style="{StaticResource SubTitleLabelStyle}" Grid.Row="0" Margin="5"/>
+                <CollectionView ItemsSource="{Binding FoodList}" Grid.Row="1"
+                                HorizontalScrollBarVisibility="Never" SelectionChanged="CV_FoodItemList_SelectionChanged" SelectionMode="Single">
+                    <CollectionView.ItemsLayout>
+                        <LinearItemsLayout Orientation="Horizontal" ItemSpacing="10"/>
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                          <Frame WidthRequest="250" HasShadow="False" HeightRequest="285" Padding="0" BackgroundColor="{DynamicResource BgColor}">
+                            <Grid RowDefinitions="200,25,20,40" ColumnDefinitions="100,150">
+                                <Image Source="{Binding ImageUrl}" Grid.Row="0" Grid.Column="0" Aspect="AspectFill" HeightRequest="190" WidthRequest="240"
+                                        Grid.ColumnSpan="2"/>
+                                <Label Text="{Binding FoodName}" Style="{StaticResource PrimaryBoldStyle}" FontSize="18" Grid.Row="1" HorizontalOptions="Center" Grid.ColumnSpan="2"/>
+                                <Label Text="{Binding Price, StringFormat='Rs. {0}'}" Style="{StaticResource PrimaryBoldStyle}" FontSize="16" Grid.Row="2" HorizontalOptions="Center" VerticalOptions="Center"/>
+                                
+                                <Label Text="Click here to View Details" Grid.Row="3" Grid.ColumnSpan="2"
+                                       VerticalOptions="Center" HorizontalOptions="Center" FontSize="15" TextColor="{DynamicResource DemoColor}"/>
+                            </Grid>
+                          </Frame>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </Grid>
+            </StackLayout>
+            </ScrollView.Content>
+            </ScrollView>
+        </Grid>
+</ContentPage.Content>
+</ContentPage>
+

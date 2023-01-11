@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             BackgroundColor="{DynamicResource PageBackgroundColor}"
+             x:Class="FoodOrderApp.Views.SearchView"
+             Title="SearchView">
+    <ContentPage.Content>
+        <Grid RowDefinitions="Auto,Auto,Auto,*" ColumnDefinitions="*,Auto">
+            <Grid Grid.Row="0" BackgroundColor="{DynamicResource NavigationBarColor}" Padding="10" RowDefinitions="30" Grid.ColumnSpan="2">
+                <ImageButton Source="https://cdn-icons-png.flaticon.com/128/2223/2223615.png" WidthRequest="30" HeightRequest="30"
+                                HorizontalOptions="StartAndExpand" Grid.Row="0" Clicked="ImageButton_Clicked"/>
+                <Label Text="Search Result"  Style="{StaticResource TitleLabelStyle}"
+                       FontFamily="" Grid.Row="0" HorizontalOptions="Center"/>
+            </Grid>
+            <StackLayout Grid.Row="1" Grid.Column="0" Padding="5" Orientation="Horizontal" BackgroundColor="{DynamicResource BgColor2}">
+                <Label Text="Search  Results for " FontSize="Body"/>
+                <Label Text="{Binding searchText}" FontAttributes="Bold" FontFamily="" FontSize="18"/>
+            </StackLayout>
+            <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}"
+                               HeightRequest="100" WidthRequest="100" Color="{DynamicResource BorderColor}" VerticalOptions="Start"
+                               HorizontalOptions="Center" Grid.Row="2" Grid.ColumnSpan="2"/>
+            <Label Text="Fetching Details" VerticalOptions="Center" HorizontalOptions="Center"
+                   FontSize="Medium" TextColor="{DynamicResource PrimaryTextColor}" Grid.Row="2" TranslationY="40" IsVisible="{Binding IsBusy}"/>
+            <CollectionView Grid.Row="3" ItemsSource="{Binding SearchFoodItems}"
+                            Grid.ColumnSpan="2" Grid.Column="0" VerticalScrollBarVisibility="Never"
+                            SelectionMode="Single" SelectionChanged="CollectionView_SelectionChanged" IsVisible="{Binding IsWait}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid ColumnDefinitions="Auto,*" RowDefinitions="Auto,*,Auto" ColumnSpacing="5" Padding="5" BackgroundColor="{DynamicResource BgColor2}">
+                            <Image Source="{Binding ImageUrl}" Grid.Row="0" WidthRequest="100" HeightRequest="100"
+                                   Aspect="Center" Grid.RowSpan="3">
+                                <Image.Clip>
+                                    <EllipseGeometry Center="50,50" RadiusX="50" RadiusY="50"/>
+                                </Image.Clip>
+                            </Image>
+                            <Label Text="{Binding FoodName}" FontSize="18" FontAttributes="Bold" Grid.Row="0" Grid.Column="1" FontFamily="" TextColor="{DynamicResource Names}"/>
+                            <Label Text="{Binding Description}" FontSize="16" Grid.Row="1" Grid.Column="1" TextColor="{DynamicResource Names}"/>
+                            <Label Grid.Row="2" Grid.Column="1">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="Price : " FontSize="16" FontAttributes="Bold" TextColor="Red"/>
+                                        <Span Text="{Binding Price}" FontSize="16" TextColor="{DynamicResource Names}"/>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+                <CollectionView.EmptyView>
+                    <Label Text="No Items Found" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="Subtitle"
+                           TextColor="Gray"/>
+                </CollectionView.EmptyView>
+            </CollectionView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

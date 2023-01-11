@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FoodOrderApp.Views.OrderHistoryPage"
+             xmlns:vm="clr-namespace:FoodOrderApp.ViewModels"
+             BackgroundColor="{DynamicResource PageBackgroundColor}"
+             Title="OrderHistoryPage">
+    <ContentPage.BindingContext>
+        <vm:OrderHistoryViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <Grid RowDefinitions="50,Auto,*">
+            <!--<Button Text="Get Previoous Orders" HorizontalOptions="Center" WidthRequest="150" VerticalOptions="Center"
+                    BackgroundColor="Goldenrod" Command="{Binding GetDetailsCommand}" Grid.Row="0"/>-->
+            
+            <ActivityIndicator IsVisible="{Binding IsBusy}" IsRunning="{Binding IsBusy}" WidthRequest="100" Grid.Row="1"
+                               HeightRequest="100" Color="Black" VerticalOptions="Center" HorizontalOptions="Center"/>
+            <ListView ItemsSource="{Binding OrderDetails}" HasUnevenRows="True" Grid.Row="2">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Padding="10">
+                            <Label Text="{Binding OrderId}" TextColor="purple"/> 
+                            <Label Text="{Binding TotalCost}" TextColor="Green"/>
+                        </StackLayout>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

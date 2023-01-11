@@ -1,0 +1,210 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FoodOrderApp.Views.ProfilePage"
+             xmlns:vm="clr-namespace:FoodOrderApp.ViewModels"
+              Title="My Profile">
+    <ContentPage.BindingContext>
+        <vm:ProfileViewModel/>
+    </ContentPage.BindingContext>
+    <!--<StackLayout>
+        <Frame BackgroundColor="White" CornerRadius="1" Padding="1" Margin="15" BorderColor="LightBlue">
+            <Grid RowDefinitions="Auto,40,40">
+                <Grid ColumnDefinitions="50,280,20" Grid.Row="0" BackgroundColor="LightCyan" RowDefinitions="Auto,Auto">
+                    <Frame HorizontalOptions="Start" VerticalOptions="Center" BackgroundColor="SkyBlue"
+                           Grid.Column="0" Grid.Row="0">
+                        <Label Text="{Binding ProfID}" TextColor="Black" FontAttributes="Bold"/>
+                        <Frame.Clip>
+                            <EllipseGeometry Center="25,29" RadiusX="16" RadiusY="16"/>
+                        </Frame.Clip>
+                    </Frame>
+                    <Label Text="{Binding ProfileName}" x:Name="profileName" VerticalOptions="Center" HorizontalOptions="Start" 
+                           TranslationX="5" Grid.Column="1" Grid.Row="0"/>
+                    <ImageButton Source="https://icons.veryicon.com/png/o/education-technology/onemind/edit-97.png"
+                                 HorizontalOptions="End"
+                                 WidthRequest="40"
+                                 Grid.Column="2"
+                                 Grid.Row="0"
+                                 x:Name="PEditIcon"
+                                  IsVisible="true"
+                                 Clicked="ProfileEdit_Clicked"/>
+                    <ImageButton Source="https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Cancel_icon.svg/1200px-Cancel_icon.svg.png"
+                                 HorizontalOptions="End"
+                                 WidthRequest="40"
+                                 Grid.Column="2"
+                                 Grid.Row="0"
+                                 x:Name="PEditCancelIcon"
+                                  IsVisible="false"
+                                 Clicked="ProfileEditCancel_Clicked"
+                                 Command="{Binding ProfileEditCancelButton}"/>
+                    <Entry x:Name="ProfileEdit" Text="{Binding ProfileNameEdit}" IsEnabled="False" Placeholder="Enter New Name" PlaceholderColor="LightGray" IsVisible="False" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3"/>
+                </Grid>
+                <Grid ColumnDefinitions="20,150" Grid.Row="1" BackgroundColor="GhostWhite">
+                    <Image Source="https://cdn-icons-png.flaticon.com/512/5068/5068731.png" Grid.Column="0" VerticalOptions="Center" HorizontalOptions="Center"
+                           TranslationX="10"/>
+                    <Label Text="{Binding MobileNo}" TextColor="Gray" Grid.Column="1" VerticalOptions="Center" TranslationX="25"/>
+                </Grid>
+                <Grid ColumnDefinitions="20,300,25" Grid.Row="2" BackgroundColor="LightCyan">
+                    <Image Source="https://www.iconpacks.net/icons/1/free-mail-icon-142-thumb.png" Grid.Column="0" VerticalOptions="Center" HorizontalOptions="Center"
+                           TranslationX="12"
+                           WidthRequest="30"/>
+                    <Label Text="{Binding Email}" x:Name="EmailLabel" TextColor="Gray" Grid.Column="1" VerticalOptions="Center" HorizontalOptions="Start"
+                           TranslationX="25" IsVisible="true"/>
+                    <ImageButton Source="https://icons.veryicon.com/png/o/education-technology/onemind/edit-97.png"
+                                 HorizontalOptions="End"
+                                 Grid.Column="2"
+                                 x:Name="ButtonEmailEdit"
+                                 Clicked="EmailEdit_Clicked"
+                                 IsEnabled="True"
+                                 IsVisible="true"/>
+                    <Entry Text="{Binding EmailEdit}" x:Name="EmailLabelEdit" IsEnabled="False" TextColor="Gray" Grid.Column="0" VerticalOptions="Center" HorizontalOptions="Start"
+                           TranslationX="40" IsVisible="false" Grid.ColumnSpan="3"/>
+                    <ImageButton Source="https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Cancel_icon.svg/1200px-Cancel_icon.svg.png"
+                                 HorizontalOptions="End"
+                                 Grid.Column="2"
+                                 x:Name="ButtonCancelEdit"
+                                 IsVisible="false"
+                                 Clicked="EmailEditCancel_Clicked"
+                                 Command="{Binding EmailEditCancelButton}"/>
+                </Grid>
+            </Grid>
+        </Frame>
+        
+        
+        <Frame Margin="15" CornerRadius="1">
+            <Grid RowDefinitions="Auto,Auto,Auto" RowSpacing="30">
+                <Grid ColumnDefinitions="25,160" Grid.Row="0" ColumnSpacing="20">
+               ..     <Image Source="https://icons.veryicon.com/png/o/internet-web/internet-industry-business-icon/map-location-1.png"
+                           Grid.Column="0" VerticalOptions="Start" HorizontalOptions="Center"/>
+                    <Label Text="My Address" Grid.Column="1" VerticalOptions="Center" HorizontalOptions="Start"/>
+                    <Grid.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding Address_Command}"/>
+                    </Grid.GestureRecognizers>
+                </Grid>
+                <Grid ColumnDefinitions="25,160" Grid.Row="1" ColumnSpacing="20">
+                    <Image Source="https://static.thenounproject.com/png/5030571-200.png"
+                           Grid.Column="0" VerticalOptions="Start" HorizontalOptions="Center"/>
+                    <Label Text="My Orders" Grid.Column="1" VerticalOptions="Center" HorizontalOptions="Start"/>
+                    <Grid.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="Order_Tapped"/>
+                    </Grid.GestureRecognizers>
+                </Grid>
+                <Grid ColumnDefinitions="20,150" Grid.Row="2" ColumnSpacing="20">
+               ..     <Image Source="https://icons.veryicon.com/png/o/internet-web/website-icons/logout-8.png"
+                           Grid.Column="0" VerticalOptions="Start" HorizontalOptions="Center"/>
+                    <Label Text="Logout" Grid.Column="1" VerticalOptions="Center" HorizontalOptions="StartAndExpand"/>
+                    <Grid.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="Logout_Tapped"/>
+                    </Grid.GestureRecognizers>
+                </Grid>
+            </Grid>
+        </Frame>
+        <StackLayout Orientation="Horizontal">
+            <Button FontAttributes="Bold" Text="Save" Command="{Binding SaveProfile_Command}" HorizontalOptions="End" IsVisible="false" 
+                    x:Name="saveProfileButton" TranslationX="160"/>
+            <Button FontAttributes="Bold" Text="Save" Command="{Binding SaveEmail_Command}" HorizontalOptions="End" IsVisible="false" 
+                    x:Name="saveEmailButton" TranslationX="160"/>
+        </StackLayout>
+    </StackLayout>-->
+
+    <ContentPage.Content>
+        <Grid RowDefinitions="Auto,*">
+           <Grid Grid.Row="0" BackgroundColor="{DynamicResource NavigationBarColor}" Padding="10" RowDefinitions="30" Grid.ColumnSpan="2">
+                <ImageButton Source="https://cdn-icons-png.flaticon.com/128/2223/2223615.png" WidthRequest="30" HeightRequest="30"
+                                HorizontalOptions="StartAndExpand" Grid.Row="0" Clicked="ImageButton_Clicked"/>
+                <Label Text="My Profile"  Style="{StaticResource TitleLabelStyle}"
+                       FontFamily="" Grid.Row="0" HorizontalOptions="Center"/>
+            </Grid>
+
+        
+        <Grid RowDefinitions="Auto,Auto" Padding="15" Grid.Row="1">
+            <Grid Grid.Row="0" RowDefinitions="Auto,Auto,Auto" BackgroundColor="LightCyan" >
+                
+                <Grid RowDefinitions="50,Auto" ColumnDefinitions="40,6*,*" Padding="10" Grid.Row="0">
+                    <Border Grid.Row="0" Grid.Column="0" BackgroundColor="SkyBlue" HeightRequest="40">
+                        <Label Text="{Binding ProfID}" TextColor="Black" FontAttributes="Bold" HorizontalTextAlignment="Center"
+                               VerticalTextAlignment="Center" FontSize="20"/>
+                        <Border.Clip>
+                            <EllipseGeometry RadiusX="20" RadiusY="20" Center="20,20"/>
+                        </Border.Clip>
+                    </Border>
+                    <Label Text="{Binding ProfileName}" x:Name="profileName" Grid.Row="0" TranslationX="20"
+                           Grid.Column="1" VerticalTextAlignment="Center" HorizontalTextAlignment="Start"
+                           FontSize="20"/>
+                    <ImageButton Source="https://icons.veryicon.com/png/o/education-technology/onemind/edit-97.png"
+                                 Grid.Row="0" Grid.Column="2" x:Name="PEditIcon"
+                                 IsVisible="true" Clicked="ProfileEdit_Clicked"/>
+                    <ImageButton Source="https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Cancel_icon.svg/1200px-Cancel_icon.svg.png"
+                                 Grid.Row="0" Grid.Column="2" x:Name="PEditCancelIcon"
+                                 IsVisible="false" Clicked="ProfileEditCancel_Clicked"
+                                 Command="{Binding ProfileEditCancelButton}"/>
+                    <Entry x:Name="ProfileEdit" Text="{Binding ProfileNameEdit}" IsEnabled="False" Placeholder="Enter New Name" PlaceholderColor="LightGray"
+                           IsVisible="False" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3"/>
+                </Grid>
+                <Grid RowDefinitions="50" ColumnDefinitions="40,6*,*" Grid.Row="1" BackgroundColor="White">
+                    <Image Source="https://cdn-icons-png.flaticon.com/512/5068/5068731.png" WidthRequest="25" TranslationX="5"/>
+                    <Label Text="{Binding MobileNo}" Grid.Row="0" TranslationX="20"
+                           Grid.Column="1" VerticalTextAlignment="Center" HorizontalTextAlignment="Start"
+                           FontSize="Medium" TextColor="Gray"/>
+                </Grid>
+                <Grid RowDefinitions="35,Auto" ColumnDefinitions="40,6*,*" Padding="10" Grid.Row="2">
+                    <Image Source="https://www.iconpacks.net/icons/1/free-mail-icon-142-thumb.png" WidthRequest="32"/>
+                    <Label Text="{Binding Email}" x:Name="EmailLabel" Grid.Row="0" TranslationX="20"
+                           Grid.Column="1" VerticalTextAlignment="Center" HorizontalTextAlignment="Start"
+                           FontSize="Medium" IsVisible="true" TextColor="Gray"/>
+                    <ImageButton Source="https://icons.veryicon.com/png/o/education-technology/onemind/edit-97.png"
+                                 Grid.Row="0" Grid.Column="2" x:Name="ButtonEmailEdit"
+                                 Clicked="EmailEdit_Clicked" IsEnabled="True" IsVisible="true"/>
+                    <ImageButton Source="https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Cancel_icon.svg/1200px-Cancel_icon.svg.png"
+                                 Grid.Row="0" Grid.Column="2" x:Name="ButtonCancelEdit"
+                                 IsVisible="false" Clicked="EmailEditCancel_Clicked"
+                                 Command="{Binding EmailEditCancelButton}"/>
+                    <Entry Text="{Binding EmailEdit}" x:Name="EmailLabelEdit" IsEnabled="False" TextColor="Gray" Grid.Column="0"
+                           VerticalOptions="Center" HorizontalOptions="Start"
+                           TranslationX="40" IsVisible="false" Grid.ColumnSpan="3"/>
+                </Grid>
+            </Grid>
+            <Border Grid.Row="1" BackgroundColor="Black" StrokeShape="RoundRectangle" StrokeThickness="1" Margin="0,40,0,0">
+                <Grid BackgroundColor="White" RowDefinitions="Auto,Auto,Auto" Padding="8" RowSpacing="20">
+                    <Grid ColumnDefinitions="60,*" Grid.Row="0">
+                        <Image Source="https://icons.veryicon.com/png/o/internet--web/internet-industry-business-icon/map-location-1.png" Grid.Column="0"
+                               WidthRequest="35" HeightRequest="35" HorizontalOptions="Center"/>
+                        <Label Text="My Address" Grid.Column="1" FontSize="Medium" VerticalTextAlignment="Center"/>
+                    </Grid>
+                    <Grid RowDefinitions="Auto,Auto" ColumnDefinitions="150,100,100" Grid.Row="1">
+                        <Label Text="Select Theme"  Grid.Row="0" Grid.Column="0" FontSize="Medium" Margin="10,0,0,0"
+                               VerticalTextAlignment="Center"/>
+                        <Picker x:Name="PickerThemes" Title="Select Theme" Grid.Row="0" Grid.Column="1"
+                                TextColor="Purple" TitleColor="Black">
+                            <!--<Picker.ItemsSource>
+                                <x:Array Type="{x:Type x:String}">
+                                    <x:String>Light</x:String>
+                                    <x:String>Dark</x:String>
+                                </x:Array>
+                            </Picker.ItemsSource>-->
+                        </Picker>
+                        <Button Text="Apply" x:Name="BtnApplyTheme" BackgroundColor="DeepSkyBlue"
+                                TextColor="Black" Clicked="BtnApplyTheme_Clicked" Grid.Column="2"
+                                WidthRequest="80" Margin="35,0,0,0"/>
+                    </Grid>
+                    <Grid ColumnDefinitions="60,*" Grid.Row="2" Margin="0,0,0,10" >
+                        <Image Source="https://icons.veryicon.com/png/o/internet--web/website-icons/logout-8.png" Grid.Column="0"
+                               WidthRequest="25" HeightRequest="25" HorizontalOptions="Center"/>
+                        <Label Text="Logout" Grid.Column="1" FontSize="Medium" VerticalTextAlignment="Center">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="Logout_Tapped"/>
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </Grid>
+                </Grid>
+            </Border>
+            <StackLayout Orientation="Horizontal">
+                <Button FontAttributes="Bold" Text="Save" Command="{Binding SaveProfile_Command}" HorizontalOptions="End" IsVisible="false" 
+                        x:Name="saveProfileButton" TranslationX="160"/>
+                <Button FontAttributes="Bold" Text="Save" Command="{Binding SaveEmail_Command}" HorizontalOptions="End" IsVisible="false" 
+                        x:Name="saveEmailButton" TranslationX="160"/>
+            </StackLayout>
+        </Grid>
+            </Grid>
+    </ContentPage.Content>
+</ContentPage>

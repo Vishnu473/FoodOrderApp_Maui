@@ -1,0 +1,64 @@
+﻿<?xml version = "1.0" encoding = "UTF-8" ?>
+<Application xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:FoodOrderApp"
+             x:Class="FoodOrderApp.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+               <ResourceDictionary Source="Themes/LightTheme1.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+        <Style x:Key="TitleLabelStyle"
+               TargetType="Label">
+            <Setter Property="TextColor"
+                    Value="{DynamicResource PrimaryTextColor}" />
+            <Setter Property="FontSize"
+                    Value="Title" />
+            <Setter Property="FontAttributes" Value="Bold"/>
+        </Style>
+        <Style x:Key="SubTitleLabelStyle"
+               TargetType="Label">
+            <Setter Property="TextColor"
+                    Value="{DynamicResource PrimaryTextColor}" />
+            <Setter Property="FontSize"
+                    Value="Title" />
+            <Setter Property="FontAttributes" Value="Bold"/>
+        </Style>
+        <Style x:Key="LargeLabelStyle"
+               TargetType="Label">
+            <Setter Property="TextColor"
+                    Value="{DynamicResource PrimaryTextColor}" />
+            <Setter Property="FontSize"
+                    Value="Large" />
+            <Setter Property="FontAttributes" Value="Bold"/>
+        </Style>
+        <Style x:Key="SubLabelStyle"
+               TargetType="Label">
+            <Setter Property="TextColor" Value="{DynamicResource TeritiaryTextColor}" />
+            <Setter Property="FontSize" Value="19" />
+            <Setter Property="FontAttributes" Value="Bold"/>
+
+        </Style>
+        <Style x:Key="PrimaryBoldStyle" TargetType="Label">
+            <Setter Property="TextColor"
+                    Value="{DynamicResource PrimaryTextColor}" />
+            <Setter Property="FontAttributes" Value="Bold"/>
+        </Style>
+        <Style x:Key="EntryQtyStyle" TargetType="Entry">
+            <Setter Property="TextColor"
+                    Value="{DynamicResource PrimaryTextColor}" />
+            <Setter Property="FontAttributes" Value="Bold"/>
+            <Setter Property="FontSize" Value="20"/>
+        </Style>
+        <Style x:Key="ImgBtnCenterStyle" TargetType="ImageButton">
+            <Setter  Property="VerticalOptions" Value="Center"/>
+            <Setter Property="HorizontalOptions" Value="Center"/>
+        </Style>
+        <Style x:Key="BtnStyle" TargetType="Button">
+            <Setter Property="TextColor" Value="{DynamicResource SecondaryTextColor}"/>
+            <Setter Property="CornerRadius" Value="10"/>
+        </Style>
+    </Application.Resources>
+</Application>
+

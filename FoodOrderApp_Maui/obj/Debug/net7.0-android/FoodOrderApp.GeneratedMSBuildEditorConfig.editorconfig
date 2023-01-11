@@ -1,0 +1,117 @@
+is_global = true
+build_property.TargetFramework = net7.0-android
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = false
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.EnableAotAnalyzer = 
+build_property.EnableSingleFileAnalyzer = true
+build_property.EnableTrimAnalyzer = false
+build_property.IncludeAllContentForSelfExtract = 
+build_property.RootNamespace = FoodOrderApp
+build_property.ProjectDir = /Users/tarini.vishnukishore/Projects/FoodOrderApp/FoodOrderApp/
+
+[/Users/tarini.vishnukishore/Projects/FoodOrderApp/FoodOrderApp/App.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = FoodOrderApp.App.xaml
+build_metadata.AdditionalFiles.TargetPath = App.xaml
+build_metadata.AdditionalFiles.RelativePath = App.xaml
+
+[/Users/tarini.vishnukishore/Projects/FoodOrderApp/FoodOrderApp/Resources/Styles/Colors.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = FoodOrderApp.Resources.Styles.Colors.xaml
+build_metadata.AdditionalFiles.TargetPath = Resources/Styles/Colors.xaml
+build_metadata.AdditionalFiles.RelativePath = Resources/Styles/Colors.xaml
+
+[/Users/tarini.vishnukishore/Projects/FoodOrderApp/FoodOrderApp/Resources/Styles/Styles.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = FoodOrderApp.Resources.Styles.Styles.xaml
+build_metadata.AdditionalFiles.TargetPath = Resources/Styles/Styles.xaml
+build_metadata.AdditionalFiles.RelativePath = Resources/Styles/Styles.xaml
+
+[/Users/tarini.vishnukishore/Projects/FoodOrderApp/FoodOrderApp/Themes/DarkTheme.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = FoodOrderApp.Themes.DarkTheme.xaml
+build_metadata.AdditionalFiles.TargetPath = Themes/DarkTheme.xaml
+build_metadata.AdditionalFiles.RelativePath = Themes/DarkTheme.xaml
+
+[/Users/tarini.vishnukishore/Projects/FoodOrderApp/FoodOrderApp/Themes/LightTheme1.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = FoodOrderApp.Themes.LightTheme1.xaml
+build_metadata.AdditionalFiles.TargetPath = Themes/LightTheme1.xaml
+build_metadata.AdditionalFiles.RelativePath = Themes/LightTheme1.xaml
+
+[/Users/tarini.vishnukishore/Projects/FoodOrderApp/FoodOrderApp/Views/CartView.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = FoodOrderApp.Views.CartView.xaml
+build_metadata.AdditionalFiles.TargetPath = Views/CartView.xaml
+build_metadata.AdditionalFiles.RelativePath = Views/CartView.xaml
+
+[/Users/tarini.vishnukishore/Projects/FoodOrderApp/FoodOrderApp/Views/FoodItemDetailView.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = FoodOrderApp.Views.FoodItemDetailView.xaml
+build_metadata.AdditionalFiles.TargetPath = Views/FoodItemDetailView.xaml
+build_metadata.AdditionalFiles.RelativePath = Views/FoodItemDetailView.xaml
+
+[/Users/tarini.vishnukishore/Projects/FoodOrderApp/FoodOrderApp/Views/FoodProductView.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = FoodOrderApp.Views.FoodProductView.xaml
+build_metadata.AdditionalFiles.TargetPath = Views/FoodProductView.xaml
+build_metadata.AdditionalFiles.RelativePath = Views/FoodProductView.xaml
+
+[/Users/tarini.vishnukishore/Projects/FoodOrderApp/FoodOrderApp/Views/HomeView.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = FoodOrderApp.Views.HomeView.xaml
+build_metadata.AdditionalFiles.TargetPath = Views/HomeView.xaml
+build_metadata.AdditionalFiles.RelativePath = Views/HomeView.xaml
+
+[/Users/tarini.vishnukishore/Projects/FoodOrderApp/FoodOrderApp/Views/OrderHistoryPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = FoodOrderApp.Views.OrderHistoryPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views/OrderHistoryPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views/OrderHistoryPage.xaml
+
+[/Users/tarini.vishnukishore/Projects/FoodOrderApp/FoodOrderApp/Views/OrderHistoryView.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = FoodOrderApp.Views.OrderHistoryView.xaml
+build_metadata.AdditionalFiles.TargetPath = Views/OrderHistoryView.xaml
+build_metadata.AdditionalFiles.RelativePath = Views/OrderHistoryView.xaml
+
+[/Users/tarini.vishnukishore/Projects/FoodOrderApp/FoodOrderApp/Views/OrderView.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = FoodOrderApp.Views.OrderView.xaml
+build_metadata.AdditionalFiles.TargetPath = Views/OrderView.xaml
+build_metadata.AdditionalFiles.RelativePath = Views/OrderView.xaml
+
+[/Users/tarini.vishnukishore/Projects/FoodOrderApp/FoodOrderApp/Views/ProfilePage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = FoodOrderApp.Views.ProfilePage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views/ProfilePage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views/ProfilePage.xaml
+
+[/Users/tarini.vishnukishore/Projects/FoodOrderApp/FoodOrderApp/Views/SearchView.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = FoodOrderApp.Views.SearchView.xaml
+build_metadata.AdditionalFiles.TargetPath = Views/SearchView.xaml
+build_metadata.AdditionalFiles.RelativePath = Views/SearchView.xaml
+
+[/Users/tarini.vishnukishore/Projects/FoodOrderApp/FoodOrderApp/Views/SettingsPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = FoodOrderApp.Views.SettingsPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views/SettingsPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views/SettingsPage.xaml
+
+[/Users/tarini.vishnukishore/Projects/FoodOrderApp/FoodOrderApp/Views/SignInPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = FoodOrderApp.Views.SignInPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views/SignInPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views/SignInPage.xaml
+
+[/Users/tarini.vishnukishore/Projects/FoodOrderApp/FoodOrderApp/Views/SignUpPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = FoodOrderApp.Views.SignUpPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views/SignUpPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views/SignUpPage.xaml

@@ -1,0 +1,226 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FoodOrderApp.Views.SignUpPage"
+             xmlns:handless="clr-namespace:FoodOrderApp.Handlers"
+             xmlns:vm="clr-namespace:FoodOrderApp.ViewModels"
+             xmlns:triggers="clr-namespace:FoodOrderApp.Triggers"
+             NavigationPage.HasNavigationBar="False"
+             Shell.NavBarIsVisible="False"
+             xmlns:mct="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             BackgroundImageSource="https://i.pinimg.com/736x/0b/01/6d/0b016db576f74b7f7b94d958ba618f79.jpg"
+             Title="Sign Up">
+    <ContentPage.BindingContext>
+        <vm:SignUpViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <ResourceDictionary >
+            <Style x:Key="Invalid" TargetType="Entry">
+                <Setter Property="TextColor" Value="red"/>
+            </Style>
+            <Style x:Key="InvalidBackGround" TargetType="Entry">
+                <Setter Property="BackgroundColor" Value="Red"/>
+            </Style>
+            <Style x:Key="Valid" TargetType="Entry">
+                <Setter Property="BackgroundColor" Value="Transparent"/>
+                <Setter Property="TextColor" Value="Black"/>
+            </Style>
+            </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid RowDefinitions="1*,8*,1*" HorizontalOptions="Center">
+        <!--<Frame BackgroundColor="#cfd0d8" Grid.Row="0" HorizontalOptions="EndAndExpand"
+               Padding="0" 
+               Margin="0,-80,-80,0"
+               HeightRequest="250"
+               WidthRequest="250" CornerRadius="125">
+        </Frame>-->
+        <Label Grid.Row="0" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" TranslationX="2" TranslationY="1">
+            <Label.FormattedText>
+               <FormattedString>
+                    <Span Text="FOOD " FontAttributes="Bold" FontSize="40" TextColor="#512BD4" FontFamily="OpenSansSemibold"/>
+                    <Span Text="DELIVERY" FontAttributes="Bold" FontSize="40" TextColor="#512BD4" FontFamily="OpenSansSemibold"/>
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+        <Label Text="FOOD DELIVERY" Grid.Row="0" TextColor="#512BD4" FontFamily="OpenSansSemibold" 
+               FontAttributes="Bold" FontSize="40" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+        <!--<Frame BackgroundColor="{x:StaticResource Primary}" Grid.Row="0" HorizontalOptions="EndAndExpand"
+               Padding="0" 
+               Margin="0,-120,-120,0"
+               HeightRequest="250"
+               WidthRequest="250" CornerRadius="125">
+        </Frame>-->
+        <!--<Frame ZIndex="1" CornerRadius="0" BackgroundColor="Transparent"
+               Grid.Row="1" VerticalOptions="CenterAndExpand"
+               Margin="0,0,40,0">-->
+            <ScrollView Grid.Row="1" VerticalOptions="Center" WidthRequest="300">
+                <VerticalStackLayout Spacing="15">
+                    <Label Text="SIGN UP" FontSize="25" FontAttributes="Bold" />
+
+                    <!--<Frame Padding="10" BorderColor="Transparent" CornerRadius="0" BackgroundColor="Transparent">-->
+                        <Grid ColumnDefinitions="25,*" ColumnSpacing="10">
+                            <Image VerticalOptions="Center" Source="user.png" HeightRequest="25" WidthRequest="25" />
+                            <Entry VerticalOptions="Center" Placeholder="Name" Grid.Column="1" x:Name="EntryName"
+                                   HeightRequest="40" FontSize="Medium" Text="{Binding Name}">
+                                <Entry.Behaviors>
+                                    <mct:CharactersValidationBehavior
+                                        CharacterType="Letter"
+                                        MinimumCharacterTypeCount="1"
+                                        InvalidStyle="{StaticResource InvalidBackGround}"
+                                        ValidStyle="{StaticResource Valid}"/>
+                                </Entry.Behaviors>
+                                </Entry>
+                            <Label Text="*" TranslationY="5" TranslationX="25" TextColor="Red"/>
+                        </Grid>
+                    <!--</Frame>-->
+
+                    <!--<Frame Padding="10" BorderColor="Transparent" CornerRadius="0" BackgroundColor="Transparent">-->
+                        <Grid ColumnDefinitions="25,*" ColumnSpacing="10">
+                            <Image VerticalOptions="Center" Source="mobile.png" HeightRequest="25" WidthRequest="25" />
+                            <Entry VerticalOptions="Center" Placeholder="Mobile Number" Grid.Column="1" x:Name="EntryMobile"
+                                   HeightRequest="40" FontSize="Medium" Text="{Binding Mobile}" >
+                                <Entry.Behaviors>
+                                    <mct:CharactersValidationBehavior
+                                        CharacterType="Digit"
+                                        MinimumCharacterTypeCount="10"
+                                        InvalidStyle="{StaticResource Invalid}"
+                                        ValidStyle="{StaticResource Valid}"/>
+
+                                </Entry.Behaviors>
+                                </Entry>
+                            <Label Text="*" TranslationY="5" TranslationX="25" TextColor="Red"/>
+                        </Grid>
+                    <!--</Frame>-->
+
+                    <!--<Frame Padding="10" BorderColor="Transparent" CornerRadius="0" BackgroundColor="Transparent">-->
+                        <Grid ColumnDefinitions="25,*" ColumnSpacing="10">
+                            <Image VerticalOptions="Center" Source="email.png" HeightRequest="25" WidthRequest="25" />
+                            <Entry VerticalOptions="Center" Placeholder="Email" Grid.Column="1" Text="{Binding Email}"
+                                   HeightRequest="40" FontSize="Medium" >
+                                <Entry.Behaviors>
+                                    <mct:MultiValidationBehavior InvalidStyle="{StaticResource Invalid}"
+                                                                 ValidStyle="{StaticResource Valid}">
+                                        <mct:CharactersValidationBehavior
+                                            CharacterType="Letter"
+                                            MinimumCharacterTypeCount="1"/>
+                                        <mct:EmailValidationBehavior
+                                            DecorationFlags="Trim"/>
+                                    </mct:MultiValidationBehavior>
+                                </Entry.Behaviors>
+                                </Entry>
+                            <Label Text="*" TranslationY="5" TranslationX="25" TextColor="Red"/>
+                        </Grid>
+                    <!--</Frame>-->
+
+                    <!--<Frame Padding="10" BorderColor="Transparent" CornerRadius="0" BackgroundColor="Transparent">-->
+                        <Grid ColumnDefinitions="25,*" ColumnSpacing="10">
+                            <Image VerticalOptions="Center" Source="password.png" HeightRequest="25" WidthRequest="25" />
+                            <Entry VerticalOptions="Center" Placeholder="Password" IsPassword="True" Grid.Column="1"
+                                   HeightRequest="40" FontSize="Medium" Text="{Binding Password}">
+                                <Entry.Behaviors>
+                                    <mct:MultiValidationBehavior InvalidStyle="{StaticResource Invalid}"
+                                                                 ValidStyle="{StaticResource Valid}">
+
+                                        <mct:TextValidationBehavior
+                                            MinimumLength="8"/>
+                                        <mct:CharactersValidationBehavior
+                                            CharacterType="Digit"
+                                            MinimumCharacterTypeCount="1"/>
+                                         <mct:CharactersValidationBehavior
+                                            CharacterType="LowercaseLatinLetter"
+                                            MinimumCharacterTypeCount="1"/>
+                                         <mct:CharactersValidationBehavior
+                                            CharacterType="UppercaseLatinLetter"
+                                            MinimumCharacterTypeCount="1"/>
+                                         <mct:CharactersValidationBehavior
+                                            CharacterType="NonAlphanumericSymbol"
+                                            MinimumCharacterTypeCount="1"/>
+                                         <mct:CharactersValidationBehavior
+                                            CharacterType="Whitespace"
+                                            MinimumCharacterTypeCount="0"/>
+
+                                    </mct:MultiValidationBehavior>
+
+                                </Entry.Behaviors>
+                                </Entry>
+                            <Label Text="*" TranslationY="5" TranslationX="25" TextColor="Red"/>
+                        </Grid>
+                    <!--</Frame>-->
+
+                    <!--<Frame Padding="10" BorderColor="Transparent" CornerRadius="0" BackgroundColor="Transparent">-->
+                        <Grid ColumnDefinitions="25,*" ColumnSpacing="10">
+                            <Image VerticalOptions="Center" Source="address.png" HeightRequest="25" WidthRequest="70" />
+                            <Entry VerticalOptions="Center" Placeholder="Address" Grid.Column="1"
+                                   HeightRequest="40" FontSize="Medium" Text="{Binding Address}">
+                                <Entry.Behaviors>
+                                    <mct:CharactersValidationBehavior
+                                        CharacterType="Letter"
+                                        MinimumCharacterTypeCount="5"
+                                        ValidStyle="{StaticResource Valid}"
+                                        InvalidStyle="{StaticResource Invalid}"/>
+
+                                </Entry.Behaviors>
+                                </Entry>
+                            <Label Text="*" TranslationY="5" TranslationX="25" TextColor="Red"/>
+                        </Grid>
+                    <!--</Frame>-->
+
+                    <Button CornerRadius="10" HeightRequest="50" Text="SIGN UP" FontSize="18" FontAttributes="Bold"
+                            Command="{Binding RegisterCommand}" IsEnabled="True" BackgroundColor="#512BD4" TextColor="White"
+                            WidthRequest="150">
+                        <Button.Triggers>
+                            <MultiTrigger TargetType="Button">
+                                <MultiTrigger.Conditions>
+                                    <BindingCondition Binding="{Binding Source={x:Reference EntryName},
+                                        Path=Text.Length}"
+                                                  Value="0"/>
+                                    <BindingCondition Binding="{Binding Source={x:Reference EntryMobile},
+                                        Path=Text.Length}"
+                                                  Value="0"/>
+                                </MultiTrigger.Conditions>
+                                <Setter Property="IsEnabled" Value="False"/>
+
+                            </MultiTrigger>
+
+                        </Button.Triggers>
+                   </Button>
+
+                    <HorizontalStackLayout Spacing="10">
+                        <Label  FontAttributes="Bold" TextColor="Gray" Text="Already have a account?" VerticalTextAlignment="Center" />
+                        <Label  Text="SIGN IN" FontSize="18" 
+                           FontAttributes="Bold"
+                           TextColor="#512BD4">
+
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding SignInCommand}" />
+                        </Label.GestureRecognizers>
+                        </Label>
+                    </HorizontalStackLayout>
+                </VerticalStackLayout>
+            </ScrollView>
+        <!--</Frame>-->
+
+        <!--<Frame BackgroundColor="#cfd0d8" Grid.Row="2" 
+               VerticalOptions="EndAndExpand"
+               HorizontalOptions="StartAndExpand"
+               Padding="0" 
+               Margin="0,0,0,-180"
+               HeightRequest="250"
+               WidthRequest="250" CornerRadius="125" >
+
+        </Frame>-->
+
+        <!--<Frame BackgroundColor="#512BD4" 
+               VerticalOptions="EndAndExpand"
+               Grid.Row="2" 
+               HorizontalOptions="StartAndExpand"
+               Padding="0" 
+               Margin="0,0,0,-200"
+               HeightRequest="250"
+               WidthRequest="250" CornerRadius="125">
+
+        </Frame>-->
+
+    </Grid>
+</ContentPage>

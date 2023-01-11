@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FoodOrderApp.Views.OrderHistoryView"
+             xmlns:vm="clr-namespace:FoodOrderApp.ViewModels"
+             Title="OrderHistoryView">
+    <ContentPage.BindingContext>
+        <vm:OrderHistoryViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <Grid RowDefinitions="Auto,*">
+            <ActivityIndicator IsVisible="{Binding IsBusy}" IsRunning="{Binding IsBusy}" WidthRequest="100" Grid.Row="0"
+                               HeightRequest="100" Color="Black" VerticalOptions="Center" HorizontalOptions="Center"/>
+            <CollectionView ItemsSource="{Binding OrderDetails}" Grid.Row="1" IsGrouped="True">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Vertical"/>
+                </CollectionView.ItemsLayout>
+                <CollectionView.EmptyView>
+                        <Grid RowDefinitions="*">
+                            <Label Text="No Orders placed to display" HorizontalOptions="Center"
+                                   VerticalTextAlignment="Center" FontSize="20" TextColor="Gray" />
+                        </Grid>
+                </CollectionView.EmptyView>
+                <CollectionView.GroupHeaderTemplate>
+                    <DataTemplate>
+                        <StackLayout Padding="10" BackgroundColor="White">
+                            <Label Text="OrderId" FontSize="Subtitle" HorizontalOptions="Center" Grid.Row="0" VerticalOptions="Center" TextColor="Purple"/>
+                            <Label Text="{Binding OrderId}" FontSize="Body" HorizontalOptions="Center" Grid.Row="1" VerticalOptions="Center"/>
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.GroupHeaderTemplate>
+                <CollectionView.GroupFooterTemplate>
+                    <DataTemplate>
+                        <StackLayout Padding="10" BackgroundColor="White">
+                            <Label Text="Total Order Price" FontSize="Subtitle" HorizontalOptions="Center" Grid.Row="0" VerticalOptions="Center" TextColor="Red"/>
+                            <Label Text="{Binding TotalCost,StringFormat='Rs. {0}'}" FontSize="Body" HorizontalOptions="Center" Grid.Row="1" VerticalOptions="Center"/>
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.GroupFooterTemplate>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame CornerRadius="20" BackgroundColor="WhiteSmoke">
+                            <Grid RowDefinitions="Auto,Auto,Auto,Auto" Padding="10" RowSpacing="4">
+                            <StackLayout Grid.Row="0" >
+                                <Label Text="Detail Id : " FontAttributes="Bold" FontFamily=""
+                                       FontSize="Body" TextColor="Purple"/>
+                                <Label>
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="{Binding OrderDetailId}" TextColor="DarkSlateGray"
+                                              FontAttributes="Bold" FontFamily="" FontSize="Body"/>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                                </Label>
+                            </StackLayout>
+                            <StackLayout Grid.Row="1" >
+                                <Label Text="Food Name : " FontAttributes="Bold" FontFamily=""
+                                       FontSize="Body" TextColor="Purple"/>
+                                <Label>
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="{Binding FoodName}" TextColor="DarkSlateGray"
+                                              FontAttributes="Bold" FontFamily="" FontSize="Body"/>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                                </Label>
+                            </StackLayout>
+                            <StackLayout Grid.Row="2" >
+                                <Label Text="Quantity : " FontAttributes="Bold" FontFamily=""
+                                       FontSize="Body" TextColor="Purple"/>
+                                <Label>
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="{Binding Quantity}" TextColor="DarkSlateGray"
+                                              FontAttributes="Bold" FontFamily="" FontSize="Body"/>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                                </Label>
+                            </StackLayout>
+                            <StackLayout Grid.Row="3" >
+                                <Label Text="Price : " FontAttributes="Bold" FontFamily=""
+                                       FontSize="Body" TextColor="Purple"/>
+                                <Label>
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="{Binding Price,StringFormat='Rs. {0}'}" TextColor="DarkSlateGray"
+                                              FontAttributes="Bold" FontFamily="" FontSize="Body"/>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                                </Label>
+                            </StackLayout>
+                        </Grid>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
