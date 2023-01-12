@@ -1,6 +1,5 @@
-*.java linguist-detectable=false
-*.xml linguist-detectable=false 
-*.xaml linguist-detectable=true
-*.cs linguist-detectale=true
-*.lllvm linguist-detectable=false
-*.assembly linuist-detectale=false
+# Auto detect text files and perform LF normalization
+* text=auto
+
+# Custom for Visual Studio
+*.cs     diff=csharp
