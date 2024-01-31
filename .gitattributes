@@ -3,4 +3,4 @@
 
 # Custom for Visual Studio
 #*.cs     diff=csharp
-*.cs linguist-language=Python
+*.cs linguist-language=csharp
