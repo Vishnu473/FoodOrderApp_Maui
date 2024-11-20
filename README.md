@@ -1,6 +1,6 @@
 # Food Ordering App - Cross Platform Solution 🍔
 
-A robust cross-platform food ordering solution designed with **.NET MAUI**, offering seamless ordering experiences across **Android** and **iOS** devices.
+A robust cross-platform food ordering solution designed with **.NET MAUI** across Android and iOS devices.
 
 ---
 
